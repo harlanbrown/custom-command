@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.sample.custom.command">
+
+  <require>org.nuxeo.ecm.platform.picture.commandline.imagemagick</require>
+
+  <extension target="org.nuxeo.ecm.platform.commandline.executor.service.CommandLineExecutorComponent" point="command">
+    <command enabled="true" name="resizer">
+      <commandLine>convert</commandLine>
+      <parameterString>-define registry:temporary-path=#{nuxeo.tmp.dir} -depth #{targetDepth} -scale #{targetWidth}x#{targetHeight} #{inputFilePath} #{outputFilePath}</parameterString>
+      <winParameterString>-define registry:temporary-path=#{nuxeo.tmp.dir} -depth #{targetDepth} -scale #{targetWidth}x#{targetHeight} #{inputFilePath} #{outputFilePath}</winParameterString>
+      <installationDirective>You need to install ImageMagick.</installationDirective>
+    </command>
+  </extension>
+
+</component>
+
